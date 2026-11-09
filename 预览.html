@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配色方案合集 · 白底双色点缀</title>
+<meta name="description" content="白色主基调的双色配色方案合集，每个风格均为独立 HTML，可直接预览与复用。">
+<style>
+  :root {
+    --ink: #14251c;
+    --muted: #6f8077;
+    --line: #dfe9e3;
+    --paper: #ffffff;
+    --bg: #f4f8f6;
+    --brand: #15803d;
+    --brand-soft: #e8f7ee;
+    --shadow: 0 24px 60px -44px rgba(15, 38, 26, 0.5);
+  }
+
+  * { box-sizing: border-box; }
+
+  [hidden] { display: none !important; }
+
+  html { min-height: 100%; }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    color: var(--ink);
+    background:
+      radial-gradient(1100px 520px at 50% -12%, #e5f5eb 0%, transparent 64%),
+      radial-gradient(820px 520px at 100% 0%, #fff7dc 0%, transparent 54%),
+      var(--bg);
+    font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: min(1440px, 100%);
+    margin: 0 auto;
+    padding: 46px 28px 72px;
+  }
+
+  .head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--brand);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.17em;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 2px;
+    border-radius: 99px;
+    background: var(--brand);
+  }
+
+  .head h1 {
+    margin: 12px 0 9px;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+  }
+
+  .head p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .summary {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .summary-card {
+    min-width: 118px;
+    padding: 13px 17px;
+    border: 1px solid rgba(223, 233, 227, 0.9);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 12px 28px -26px rgba(15, 38, 26, 0.3);
+    backdrop-filter: blur(10px);
+  }
+
+  .summary-card strong {
+    display: block;
+    font-size: 24px;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+  }
+
+  .summary-card span {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 11.5px;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
+    border: 1px solid rgba(223, 233, 227, 0.95);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 16px 40px -34px rgba(15, 38, 26, 0.4);
+    backdrop-filter: blur(12px);
+  }
+
+  .search {
+    position: relative;
+    flex: 1 1 260px;
+    min-width: 0;
+  }
+
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .search input {
+    width: 100%;
+    padding: 11px 14px 11px 39px;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    outline: none;
+    background: #ffffff;
+    color: var(--ink);
+    font: inherit;
+    font-size: 13.5px;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .search input::placeholder { color: #93a49a; }
+
+  .search input:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.14);
+  }
+
+  .tool-btn {
+    padding: 10px 15px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #ffffff;
+    color: var(--ink);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  }
+
+  .tool-btn:hover {
+    border-color: #c9d9d0;
+    background: #f8fbf9;
+  }
+
+  .tool-btn:active { transform: translateY(1px); }
+
+  .tool-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.16);
+  }
+
+  .tool-btn.accent {
+    border-color: transparent;
+    background: var(--brand);
+    color: #ffffff;
+  }
+
+  .tool-btn.accent:hover { background: #166534; }
+
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 20px;
+    margin: 13px 2px 18px;
+    color: var(--muted);
+    font-size: 12.5px;
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    flex: none;
+    border-radius: 50%;
+    background: #9aaba1;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .status-dot.is-live {
+    background: #15803d;
+    box-shadow: 0 0 0 4px rgba(21, 128, 61, 0.11);
+  }
+
+  .status-dot.is-warn {
+    background: #d97706;
+    box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.11);
+  }
+
+  .status-dot.is-loading {
+    background: #64748b;
+    box-shadow: 0 0 0 4px rgba(100, 116, 139, 0.11);
+  }
+
+  .notice {
+    margin: 0 0 20px;
+    padding: 13px 16px;
+    border: 1px solid #f0e4bd;
+    border-left: 4px solid #eab308;
+    border-radius: 12px;
+    background: #fffbea;
+    color: #65531b;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .notice code {
+    padding: 1px 6px;
+    border: 1px solid #eadfbf;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #4f3f0d;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 12px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+
+  .theme-card {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 15px 17px;
+    border-bottom: 1px solid #edf2ef;
+    background: #ffffff;
+  }
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+  }
+
+  .dots {
+    display: flex;
+    flex: none;
+    align-items: center;
+  }
+
+  .dots i {
+    width: 19px;
+    height: 19px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(15, 38, 26, 0.08);
+  }
+
+  .dots i + i { margin-left: -6px; }
+
+  .card-title h2 {
+    margin: 0;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+  }
+
+  .card-title p {
+    margin: 2px 0 0;
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 11.5px;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .card-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: none;
+  }
+
+  .action {
+    padding: 6px 9px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: 11.5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  }
+
+  .action:hover {
+    border-color: var(--line);
+    background: #f7faf8;
+    color: var(--brand);
+  }
+
+  .action.primary-action {
+    border-color: var(--brand-soft);
+    background: var(--brand-soft);
+    color: var(--brand);
+  }
+
+  .action:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.16);
+  }
+
+  .frame-shell {
+    position: relative;
+    height: 1000px;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .frame-shell iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #ffffff;
+  }
+
+  .empty {
+    grid-column: 1 / -1;
+    padding: 56px 24px;
+    border: 1px dashed #cfded5;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.62);
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .empty strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--ink);
+    font-size: 16px;
+  }
+
+  .empty p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .foot {
+    margin-top: 46px;
+    color: #87988f;
+    font-size: 12.5px;
+    line-height: 1.8;
+    text-align: center;
+  }
+
+  .foot code {
+    padding: 2px 6px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--muted);
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 11.5px;
+  }
+
+  @media (max-width: 700px) {
+    .page { padding: 30px 14px 52px; }
+    .head { margin-bottom: 22px; }
+    .summary { display: none; }
+    .toolbar { gap: 8px; }
+    .tool-btn { flex: 1 1 auto; }
+    .grid { gap: 16px; }
+    .card-actions { width: 100%; justify-content: flex-end; }
+    .frame-shell { height: 1080px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="page">
+    <header class="head">
+      <div>
+        <span class="eyebrow">WHITE BASE / DUAL ACCENT</span>
+        <h1>配色方案合集</h1>
+        <p>白色主基调 · 双色点缀 · 每个风格都是可独立打开的 HTML</p>
+      </div>
+      <div class="summary" aria-label="合集概况">
+        <div class="summary-card">
+          <strong id="count">--</strong>
+          <span>个独立模块</span>
+        </div>
+        <div class="summary-card">
+          <strong>1 : 1</strong>
+          <span>HTML / TXT 配对</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <label class="search" for="search">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="search" type="search" placeholder="搜索风格名称、描述或文件名…" autocomplete="off">
+      </label>
+      <button class="tool-btn" id="refresh" type="button">↻ 重新扫描</button>
+      <button class="tool-btn accent" id="pickFolder" type="button" hidden>选择文件夹</button>
+    </div>
+
+    <div class="status" role="status" aria-live="polite">
+      <span class="status-dot is-loading" id="statusDot"></span>
+      <span id="statusText">正在读取目录…</span>
+    </div>
+
+    <div class="notice" id="notice" hidden></div>
+
+    <main class="grid" id="grid" aria-live="polite"></main>
+
+    <footer class="foot">
+      每个主题均由同名 <code>.html</code> 与 <code>.txt</code> 组成，<br>
+      HTML 负责独立展示，TXT 只保存完整源码；新增 HTML 后刷新本页即可自动收录。
+    </footer>
+  </div>
+
+<script>
+(() => {
+  'use strict';
+
+  const PREVIEW_FILE = '预览.html';
+
+  const KNOWN = {
+    '清新绿黄.html': {
+      name: '清新绿黄',
+      desc: '白色为底 · 绿色主色 · 黄色点缀',
+      primary: '#15803d',
+      accent: '#f5c518'
+    },
+    '樱花海盐.html': {
+      name: '樱花海盐',
+      desc: '白色为底 · 粉色主色 · 蓝色点缀',
+      primary: '#db2777',
+      accent: '#2563eb'
+    },
+    '活力蓝橙.html': {
+      name: '活力蓝橙',
+      desc: '白色为底 · 蓝色主色 · 橙色点缀',
+      primary: '#2563eb',
+      accent: '#ea580c'
+    },
+    '紫气青岚.html': {
+      name: '紫气青岚',
+      desc: '白色为底 · 紫色主色 · 青色点缀',
+      primary: '#7c3aed',
+      accent: '#22d3ee'
+    },
+    '朱砂鎏金.html': {
+      name: '朱砂鎏金',
+      desc: '白色为底 · 红色主色 · 金色点缀',
+      primary: '#dc2626',
+      accent: '#eab308'
+    },
+    '玫瑰薄荷.html': {
+      name: '玫瑰薄荷',
+      desc: '白色为底 · 玫红主色 · 薄荷点缀',
+      primary: '#e11d48',
+      accent: '#2dd4bf'
+    },
+    '靛蓝柠檬.html': {
+      name: '靛蓝柠檬',
+      desc: '白色为底 · 靛蓝主色 · 柠檬绿点缀',
+      primary: '#4f46e5',
+      accent: '#a3e635'
+    },
+    '焦糖天蓝.html': {
+      name: '焦糖天蓝',
+      desc: '白色为底 · 焦糖主色 · 天蓝点缀',
+      primary: '#b45309',
+      accent: '#38bdf8'
+    }
+  };
+
+  const FALLBACK_FILES = Object.keys(KNOWN);
+  const ORDER = new Map(FALLBACK_FILES.map((file, index) => [file, index]));
+
+  const els = {
+    grid: document.getElementById('grid'),
+    count: document.getElementById('count'),
+    search: document.getElementById('search'),
+    refresh: document.getElementById('refresh'),
+    pickFolder: document.getElementById('pickFolder'),
+    statusText: document.getElementById('statusText'),
+    statusDot: document.getElementById('statusDot'),
+    notice: document.getElementById('notice')
+  };
+
+  const state = {
+    items: [],
+    mode: 'loading',
+    blobUrls: []
+  };
+
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, (char) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[char]));
+  }
+
+  function safeDecode(value) {
+    try {
+      return decodeURIComponent(value);
+    } catch (error) {
+      return value;
+    }
+  }
+
+  function basename(value) {
+    const clean = safeDecode(String(value).split('#')[0].split('?')[0]);
+    return clean.split(/[\\/]/).pop();
+  }
+
+  function currentPreviewName() {
+    const name = basename(location.pathname);
+    return /\.html?$/i.test(name) ? name : PREVIEW_FILE;
+  }
+
+  function safeColor(value, fallback) {
+    return /^#[0-9a-f]{6}$/i.test(value || '') ? value : fallback;
+  }
+
+  function compareItems(a, b) {
+    const orderA = ORDER.has(a.file) ? ORDER.get(a.file) : 999;
+    const orderB = ORDER.has(b.file) ? ORDER.get(b.file) : 999;
+    return orderA - orderB || a.name.localeCompare(b.name, 'zh-CN');
+  }
+
+  function normalize(rawItems) {
+    const seen = new Set();
+    const previewName = currentPreviewName();
+
+    return rawItems.map((raw) => {
+      if (!raw) return null;
+
+      const isObject = typeof raw === 'object';
+      const file = basename(isObject ? (raw.html || '') : raw);
+      if (!file || !/\.html$/i.test(file)) return null;
+      if (file === previewName || file === PREVIEW_FILE) return null;
+      if (seen.has(file)) return null;
+      seen.add(file);
+
+      const known = KNOWN[file] || {};
+      const name = (isObject && raw.name) ? raw.name : (known.name || file.replace(/\.html$/i, ''));
+      const desc = (isObject && raw.description) ? raw.description : (known.desc || '独立配色模块 · 与同名 TXT 源码配对');
+      const rawUrl = isObject && raw.url ? raw.url : encodeURI(file);
+
+      let txtUrl = '';
+      const rawTxt = isObject ? (raw.txtUrl || raw.txt || '') : '';
+      if (rawTxt) {
+        txtUrl = /^(blob:|data:|https?:)/i.test(rawTxt) ? rawTxt : encodeURI(basename(rawTxt));
+      } else if (!isObject) {
+        txtUrl = encodeURI(file.replace(/\.html$/i, '.txt'));
+      }
+
+      return {
+        file,
+        name,
+        desc,
+        primary: safeColor((isObject && raw.primary) || known.primary, '#15803d'),
+        accent: safeColor((isObject && raw.accent) || known.accent, '#f5c518'),
+        url: rawUrl,
+        txt: txtUrl
+      };
+    }).filter(Boolean).sort(compareItems);
+  }
+
+  function setStatus(text, tone) {
+    els.statusText.textContent = text;
+    els.statusDot.className = 'status-dot';
+    if (tone) els.statusDot.classList.add('is-' + tone);
+  }
+
+  function showNotice(message) {
+    els.notice.innerHTML = message;
+    els.notice.hidden = false;
+  }
+
+  function hideNotice() {
+    els.notice.hidden = true;
+    els.notice.innerHTML = '';
+  }
+
+  function revokeBlobUrls() {
+    state.blobUrls.forEach((url) => URL.revokeObjectURL(url));
+    state.blobUrls = [];
+  }
+
+  function updateModeUI(mode, count) {
+    els.count.textContent = String(count).padStart(2, '0');
+
+    if (mode === 'api') {
+      setStatus(`已通过本地服务自动扫描到 ${count} 个 HTML · 新增文件后点击“重新扫描”即可`, 'live');
+      hideNotice();
+    } else if (mode === 'directory') {
+      setStatus(`已扫描当前目录，发现 ${count} 个 HTML · 新增文件后刷新即可`, 'live');
+      hideNotice();
+    } else if (mode === 'folder') {
+      setStatus(`已扫描所选文件夹，发现 ${count} 个 HTML · 新增文件可重新选择文件夹`, 'live');
+      hideNotice();
+    } else {
+      setStatus(`本地文件模式 · 显示内置的 ${count} 个 HTML 清单`, 'warn');
+      showNotice('当前以 file:// 直接打开，浏览器不允许网页自行读取目录。展示的是内置清单；如需自动读取新增模块，请双击 <code>启动预览.bat</code> 通过本地服务打开，或点击“选择文件夹”手动扫描。');
+    }
+
+    const canPick = 'showDirectoryPicker' in window && location.protocol === 'file:';
+    els.pickFolder.hidden = !(canPick && (mode === 'fallback' || mode === 'folder'));
+  }
+
+  function render() {
+    if (!state.items.length) {
+      els.grid.innerHTML = `
+        <div class="empty">
+          <strong>没有找到可展示的 HTML</strong>
+          <p>请确认当前目录中存在独立的 .html 文件，然后点击“重新扫描”。</p>
+        </div>`;
+      return;
+    }
+
+    els.grid.innerHTML = state.items.map((item) => {
+      const searchText = `${item.name} ${item.desc} ${item.file}`.toLocaleLowerCase('zh-CN');
+      const sourceLink = item.txt
+        ? `<a class="action" href="${escapeHTML(item.txt)}" target="_blank" rel="noopener">TXT 源码</a>`
+        : '';
+
+      return `
+        <article class="theme-card" data-search="${escapeHTML(searchText)}">
+          <header class="card-head">
+            <div class="card-title">
+              <span class="dots" aria-hidden="true">
+                <i style="background:${item.primary}"></i>
+                <i style="background:${item.accent}"></i>
+              </span>
+              <div>
+                <h2>${escapeHTML(item.name)}</h2>
+                <p>${escapeHTML(item.desc)}</p>
+              </div>
+            </div>
+            <div class="card-actions">
+              ${sourceLink}
+              <a class="action primary-action" href="${escapeHTML(item.url)}" target="_blank" rel="noopener">新窗口 ↗</a>
+            </div>
+          </header>
+          <div class="frame-shell">
+            <iframe src="${escapeHTML(item.url)}" title="${escapeHTML(item.name)} 实时预览" loading="lazy"></iframe>
+          </div>
+        </article>`;
+    }).join('');
+
+    applyFilter();
+  }
+
+  function applyFilter() {
+    const query = els.search.value.trim().toLocaleLowerCase('zh-CN');
+    const cards = Array.from(els.grid.querySelectorAll('.theme-card'));
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const matched = !query || (card.dataset.search || '').includes(query);
+      card.hidden = !matched;
+      if (matched) visible += 1;
+    });
+
+    const oldEmpty = els.grid.querySelector('.filter-empty');
+    if (oldEmpty) oldEmpty.remove();
+
+    if (cards.length && !visible) {
+      const empty = document.createElement('div');
+      empty.className = 'empty filter-empty';
+      empty.innerHTML = '<strong>没有匹配的风格</strong><p>换一个关键词试试，或清空搜索框查看全部模块。</p>';
+      els.grid.appendChild(empty);
+    }
+  }
+
+  async function tryApi() {
+    try {
+      const response = await fetch('./api/themes', {
+        cache: 'no-store',
+        headers: { Accept: 'application/json' }
+      });
+      if (!response.ok) return null;
+
+      const type = response.headers.get('content-type') || '';
+      if (!type.includes('application/json')) return null;
+
+      const data = await response.json();
+      const files = Array.isArray(data) ? data : data.files;
+      if (!Array.isArray(files)) return null;
+
+      return normalize(files);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  async function tryDirectory() {
+    try {
+      const response = await fetch('./', { cache: 'no-store' });
+      if (!response.ok) return null;
+
+      const type = response.headers.get('content-type') || '';
+      if (!type.includes('text/html')) return null;
+
+      const html = await response.text();
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const links = Array.from(doc.querySelectorAll('a[href]'))
+        .map((anchor) => anchor.getAttribute('href'))
+        .filter((href) => href && /\.html?($|[?#])/i.test(href));
+
+      return normalize(links);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  async function discover() {
+    revokeBlobUrls();
+    state.mode = 'loading';
+    setStatus('正在读取目录…', 'loading');
+    hideNotice();
+    els.count.textContent = '--';
+
+    let items = [];
+    let mode = 'fallback';
+
+    if (location.protocol === 'file:') {
+      items = normalize(FALLBACK_FILES.slice());
+    } else {
+      const apiItems = await tryApi();
+      if (apiItems && apiItems.length) {
+        items = apiItems;
+        mode = 'api';
+      } else {
+        const dirItems = await tryDirectory();
+        if (dirItems && dirItems.length) {
+          items = dirItems;
+          mode = 'directory';
+        } else {
+          items = normalize(FALLBACK_FILES.slice());
+        }
+      }
+    }
+
+    state.items = items;
+    state.mode = mode;
+    updateModeUI(mode, items.length);
+    render();
+  }
+
+  async function scanFolder() {
+    if (!('showDirectoryPicker' in window)) return;
+
+    try {
+      const directory = await window.showDirectoryPicker({ mode: 'read' });
+      revokeBlobUrls();
+      setStatus('正在扫描所选文件夹…', 'loading');
+      hideNotice();
+
+      const rawItems = [];
+
+      for await (const [name, handle] of directory.entries()) {
+        if (handle.kind !== 'file' || !/\.html$/i.test(name)) continue;
+        if (name === PREVIEW_FILE || name === currentPreviewName()) continue;
+
+        const file = await handle.getFile();
+        const htmlUrl = URL.createObjectURL(file);
+        state.blobUrls.push(htmlUrl);
+
+        let txtUrl = '';
+        try {
+          const txtHandle = await directory.getFileHandle(name.replace(/\.html$/i, '.txt'));
+          const txtFile = await txtHandle.getFile();
+          txtUrl = URL.createObjectURL(txtFile);
+          state.blobUrls.push(txtUrl);
+        } catch (error) {
+          txtUrl = '';
+        }
+
+        rawItems.push({
+          html: name,
+          url: htmlUrl,
+          txtUrl,
+          primary: (KNOWN[name] || {}).primary,
+          accent: (KNOWN[name] || {}).accent
+        });
+      }
+
+      const items = normalize(rawItems);
+      state.items = items;
+      state.mode = 'folder';
+      updateModeUI('folder', items.length);
+      render();
+    } catch (error) {
+      if (error && error.name === 'AbortError') return;
+      setStatus('扫描文件夹失败，请重试或改用本地服务方式预览。', 'warn');
+    }
+  }
+
+  els.search.addEventListener('input', applyFilter);
+  els.refresh.addEventListener('click', discover);
+  els.pickFolder.addEventListener('click', scanFolder);
+
+  discover();
+})();
+</script>
+
+</body>
+</html>
